@@ -42,17 +42,26 @@ class User {
     }
 }
 
-class SlotMachine {
-    private final String[] fruits = {"Cherry", "Orange", "Banana"};
+class SlotMachine2 {
+    private final String[] fruits = {"🍒 Cherry", "🍊 Orange", "🍌 Banana"};
 
     public void play(User user) {
-        Scanner scanner = new Scanner(System.in);
 
         if (user.getBalance() < 1) {
             System.out.println("Sorry, you don't have enough balance to play.");
             return;
         }
 
+        System.out.println("Your Balance: " + user.getBalance() + " points");
+        System.out.println("Instructions:");
+        System.out.println("1. Match three fruits to win points.");
+        System.out.println("2. Each game costs 1 point.");
+        System.out.println("3. Winnings:");
+        System.out.println("   🍒 Three Cherries: 10 points");
+        System.out.println("   🍊 Three Oranges: 50 points");
+        System.out.println("   🍌 Three Bananas: 1000 points\n");
+
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Press Enter to play...");
         scanner.nextLine();
 
@@ -71,11 +80,11 @@ class SlotMachine {
         System.out.println();
 
         if (selectedFruits[0].equals(selectedFruits[1]) && selectedFruits[1].equals(selectedFruits[2])) {
-            if (selectedFruits[0].equals("Cherry")) {
+            if (selectedFruits[0].equals("🍒 Cherry")) {
                 points = 10;
-            } else if (selectedFruits[0].equals("Orange")) {
+            } else if (selectedFruits[0].equals("🍊 Orange")) {
                 points = 50;
-            } else if (selectedFruits[0].equals("Banana")) {
+            } else if (selectedFruits[0].equals("🍌 Banana")) {
                 points = 1000;
             }
             System.out.println("Congratulations! You won " + points + " points!");
@@ -86,7 +95,6 @@ class SlotMachine {
         user.updateBalance(points);
         System.out.println("Your total balance: " + user.getBalance());
     }
+
 }
-
-
 
